@@ -6,7 +6,7 @@
 /*   By: vle-gal <vle-gal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/14 17:41:23 by vle-gal           #+#    #+#             */
-/*   Updated: 2017/04/19 21:28:14 by vle-gal          ###   ########.fr       */
+/*   Updated: 2017/09/19 11:57:00 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char	*base_dst;
+	// char	*base_dst;
 	size_t	len_dst;
 	size_t	len_src;
 	size_t	i;
 
-	base_dst = dst;
+	// base_dst = dst;
 	len_dst = ft_strlen(dst);
 	len_src = ft_strlen(src);
 	i = 0;

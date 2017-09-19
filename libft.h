@@ -6,7 +6,7 @@
 /*   By: vle-gal <vle-gal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 20:23:31 by vle-gal           #+#    #+#             */
-/*   Updated: 2017/04/27 22:49:15 by vle-gal          ###   ########.fr       */
+/*   Updated: 2017/09/19 11:43:21 by anonymous        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/mman.h>
-
+#if __STDC_VERSION__ < 199901L
+#define restrict /* nothing */
+#endif
 typedef	struct		s_list
 {
 	void			*content;
