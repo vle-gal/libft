@@ -6,7 +6,7 @@
 /*   By: anonymou <anonymou@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/09/04 11:35:02 by anonymou          #+#    #+#             */
-/*   Updated: 2017/09/19 17:57:26 by anonymous        ###   ########.fr       */
+/*   Updated: 2017/11/07 15:06:43 by vle-gal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ char* ft_dstrl(long d)
 	int len_n;
 	int less;
 
-	d < 0 ? less = 1 : 0;
-	d < 0 ? d = d * -1 : 0;
+	less = 0;
+	d < 0 ? less = 1 && (d = d * -1) : 0;
+	// d < 0 ? d = d * -1 : 0;
 	len = 0;
 	less == 1 ? len++ : 0;
 	len_n = d;
@@ -48,8 +49,9 @@ char* ft_dstrh(short d)
 	int len_n;
 	int less;
 
-	d < 0 ? less = 1 : 0;
-	d < 0 ? d = d * -1 : 0;
+	less = 0;
+	d < 0 ? less = 1 && (d = d * -1) : 0;
+	// d < 0 ? d = d * -1 : 0;
 	len = 0;
 	less == 1 ? len++ : 0;
 	len_n = d;
@@ -78,8 +80,9 @@ char* ft_dstrll(long long d)
 	int len_n;
 	int less;
 
-	d < 0 ? less = 1 : 0;
-	d < 0 ? d = d * -1 : 0;
+	less = 0;
+	d < 0 ? less = 1 && (d = d * -1) : 0;
+	// d < 0 ? d = d * -1 : 0;
 	len = 0;
 	less == 1 ? len++ : 0;
 	len_n = d;
@@ -108,8 +111,9 @@ char* ft_dstrhh(char d)
 	int len_n;
 	int less;
 
-	d < 0 ? less = 1 : 0;
-	d < 0 ? d = d * -1 : 0;
+	less = 0;
+	d < 0 ? less = 1 && (d = d * -1) : 0;
+	// d < 0 ? d = d * -1 : 0;
 	len = 0;
 	less == 1 ? len++ : 0;
 	len_n = d;
