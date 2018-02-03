@@ -6,51 +6,16 @@
 #    By: vle-gal <vle-gal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/16 23:06:16 by vle-gal           #+#    #+#              #
-#    Updated: 2017/09/19 18:00:09 by anonymous        ###   ########.fr        #
+#    Updated: 2018/01/29 08:35:14 by vle-gal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+NAME = libft.a #Makefile simple
+#les Path finding
 
-NAME = libft.a
+vpath %.c basic ft_mem ft_put ft_str
+vpath_h = -Idoth
 
-SRC_BASIC = \
-ft_isdigit.c  ft_memmove.c  ft_strcmp.c   ft_strlen.c   ft_strequ.c \
-ft_isprint.c ft_memset.c ft_strcpy.c ft_strmap.c   ft_strrchr.c  \
-ft_memalloc.c ft_putchar.c ft_strdel.c ft_strncat.c  ft_strsplit.c \
-ft_atoi.c ft_memccpy.c ft_putnbr.c ft_strdup.c   ft_strncmp.c  ft_strstr.c \
-ft_bzero.c ft_memchr.c ft_putstr.c ft_striter.c  ft_strncpy.c  ft_strsub.c \
-ft_isalnum.c ft_memcmp.c ft_strcat.c ft_striteri.c ft_strnew.c   ft_strtrim.c \
-ft_isalpha.c ft_memcpy.c ft_strchr.c ft_strjoin.c  ft_strnequ.c   ft_tolower.c \
-ft_isascii.c  ft_memdel.c ft_strclr.c ft_strlcat.c ft_strnstr.c ft_toupper.c \
-ft_putchar_fd.c ft_putendl.c ft_putendl_fd.c ft_putnbr_fd.c ft_putstr_fd.c \
-ft_strmapi.c ft_itoa.c ft_lstnew.c ft_lstdelone.c ft_lstdel.c ft_lstadd.c \
-ft_lstiter.c ft_lstmap.c ft_swap.c ft_iterative_power.c \
-ft_iterative_factorial.c ft_is_negative.c ft_div_mod.c
-
-
-
-SRC_PRINTF = \
-ft_printfl.c ft_printf_conversion.c ft_printf_long.c \
-ft_printf_s.c ft_printf_p.c	ft_printf_d.c \
-ft_printf_u.c ft_printf_o.c	ft_printf_x.c \
-ft_printf_c.c ft_flags.c \
-ft_printf_d_flags.c ft_printf_u_flags.c \
-ft_printf_x_flags.c ft_printf_o_flags.c
-
-OBJDIR = objs
-
-OBJ_BASIC = $(addprefix ${OBJDIR}/, $(SRC_BASIC:.c=.o))
-
-OBJ_PRINTF = $(addprefix ${OBJDIR}/, $(SRC_PRINTF:.c=.o))
-
-
-CFLAGS = -Wall -Wextra -Werror
-
-CC = gcc
-
-LFT = doth/libft.h
-FTP = doth/printf.h
-
-############################## COLOR ###########################################
+#les couleurs et autre
 
 Y = "\033[33m"
 R = "\033[31m"
@@ -60,31 +25,44 @@ X = "\033[0m"
 UP = "\033[A"
 CUT = "\033[K"
 
-############################ REGLES ############################################
+#les pré-règles
 
-all: ${NAME}
-		@echo ${Y}Success"  "[${NAME}]${X}
-
-${NAME}: ${OBJ_BASIC} ${OBJ_PRINTF}
-	@ar rcs ${NAME} ${OBJ_BASIC} ${OBJ_PRINTF}
-	@echo ${G}Compiling [${NAME}]...${X}
-
-${OBJDIR}/%.o : ./basic/%.c ${LFT}
+OBJDIR := objdiro
+OBJS := $(addprefix $(OBJDIR)/,ft_isdigit.o  ft_memmove.o  ft_strcmp.o \
+ft_strlen.o ft_strequ.o ft_isprint.o ft_memset.o ft_strcpy.o ft_strmap.o \
+ft_strrchr.o ft_memalloc.o ft_putchar.o ft_strdel.o ft_strncat.o ft_strsplit.o \
+ft_atoi.o ft_memccpy.o ft_putnbr.o ft_strdup.o ft_strncmp.o ft_strstr.o \
+ft_bzero.o ft_memchr.o ft_putstr.o ft_striter.o ft_strncpy.o ft_strsub.o \
+ft_isalnum.o ft_memcmp.o ft_strcat.o ft_striteri.o ft_strnew.o ft_strtrim.o \
+ft_isalpha.o ft_memcpy.o ft_strchr.o ft_strjoin.o  ft_strnequ.o ft_tolower.o \
+ft_isascii.o ft_memdel.o ft_strclr.o ft_strlcat.o ft_strnstr.o ft_toupper.o \
+ft_putchar_fd.o ft_putendl.o ft_putendl_fd.o ft_putnbr_fd.o ft_putstr_fd.o \
+ft_strmapi.o ft_itoa.o ft_lstnew.o ft_lstdelone.o ft_lstdel.o ft_lstadd.o \
+ft_lstiter.o ft_lstmap.o ft_swap.o ft_iterative_power.o \
+ft_iterative_factorial.o ft_is_negative.o ft_div_mod.o)
+$(OBJDIR)/%.o : %.c
 	@echo ${Y}Compiling [$@]...${X}
-	@/bin/mkdir -p ${OBJDIR}
-	@${CC} ${CFLAGS} -I./doth -c -o $@ $<
+	@gcc $(CPPFLAGS) $(CFLAGS) $(vpath_h) -Wall -Wextra -Werror -c \
+	$(OUTPUT_OPTION) $<
 	@printf ${UP}${CUT}
 
-${OBJDIR}/%.o : ./printf/%.c ${FTP} ${LFT}
-	@echo ${Y}Compiling [$@]...${X}
-	@/bin/mkdir -p ${OBJDIR}
-	@${CC} ${CFLAGS} -I./doth -c -o $@ $<
-	@printf ${UP}${CUT}
+#les règles
 
-clean:
-	@/bin/rm -rf ${OBJDIR}
+all: $(OBJS)
+	@ar rcs $(NAME) $(OBJS)
+	@echo ${Y}Success"  "[${NAME}]${X}
+	@echo $(R)Oh, God. Never underestimate the power of stupid things \
+	in large numbers!
+$(OBJS): | $(OBJDIR)
+$(OBJDIR):
+	@mkdir $(OBJDIR)
 
-fclean: clean
-	@/bin/rm -rf ${NAME}
+#les outils
 
-re: fclean all
+clean :
+	@rm -rf $(OBJDIR)
+	@echo $(R)Die when I kill you!
+fclean : clean
+	@rm libft.a
+re : fclean
+	@make
