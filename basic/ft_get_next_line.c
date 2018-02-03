@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   ft_get_next_line.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vle-gal <vle-gal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/10 17:55:13 by vle-gal           #+#    #+#             */
-/*   Updated: 2018/02/01 08:53:18 by vle-gal          ###   ########.fr       */
+/*   Updated: 2018/02/03 11:43:52 by vle-gal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 static	char	*str_join_free(char *buff, char *tab)
 {
@@ -67,7 +67,7 @@ static	int		verif(char **buff, char **tab, char **line)
 	return (0);
 }
 
-int				get_next_line(int const fd, char **line)
+int				ft_get_next_line(int const fd, char **line)
 {
 	static char *buff[12288];
 	char		*tmp;

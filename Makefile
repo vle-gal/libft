@@ -6,7 +6,7 @@
 #    By: vle-gal <vle-gal@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/04/16 23:06:16 by vle-gal           #+#    #+#              #
-#    Updated: 2018/01/29 08:35:14 by vle-gal          ###   ########.fr        #
+#    Updated: 2018/02/03 11:44:49 by vle-gal          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a #Makefile simple
@@ -28,7 +28,7 @@ CUT = "\033[K"
 #les pré-règles
 
 OBJDIR := objdiro
-OBJS := $(addprefix $(OBJDIR)/,ft_isdigit.o  ft_memmove.o  ft_strcmp.o \
+OBJS := $(addprefix $(OBJDIR)/,ft_get_next_line.o ft_isdigit.o  ft_memmove.o  ft_strcmp.o \
 ft_strlen.o ft_strequ.o ft_isprint.o ft_memset.o ft_strcpy.o ft_strmap.o \
 ft_strrchr.o ft_memalloc.o ft_putchar.o ft_strdel.o ft_strncat.o ft_strsplit.o \
 ft_atoi.o ft_memccpy.o ft_putnbr.o ft_strdup.o ft_strncmp.o ft_strstr.o \
