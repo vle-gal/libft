@@ -6,7 +6,7 @@
 /*   By: vle-gal <vle-gal@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/04/12 20:23:31 by vle-gal           #+#    #+#             */
-/*   Updated: 2017/09/19 11:43:21 by anonymous        ###   ########.fr       */
+/*   Updated: 2018/02/03 11:07:11 by vle-gal          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <sys/mman.h>
-#if __STDC_VERSION__ < 199901L
-#define restrict /* nothing */
-#endif
+# include <fcntl.h>
+# define BUFF_SIZE 8
 typedef	struct		s_list
 {
 	void			*content;
@@ -29,6 +28,7 @@ typedef	struct		s_list
 	struct s_list	*next;
 }					t_list;
 
+int					get_next_line(const int fd, char **line);
 void				*ft_memset(void *b, int c, size_t len);
 void				ft_bzero(void *s, size_t n);
 void				*ft_memcpy(void *restrict dst,
